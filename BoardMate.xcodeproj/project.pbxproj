@@ -6,10 +6,25 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+/* End PBXTargetDependency section */
+
 /* Begin PBXBuildFile section */
 		B00000000000000000000001 /* BoardMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000011 /* BoardMateApp.swift */; };
 		B00000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000012 /* ContentView.swift */; };
 		B00000000000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000013 /* Assets.xcassets */; };
+		C000000000000000000000C8 = {isa = PBXBuildFile; fileRef = C00000000000000000000064; };
+		C000000000000000000000C9 = {isa = PBXBuildFile; fileRef = C00000000000000000000065; };
+		C000000000000000000000CA = {isa = PBXBuildFile; fileRef = C00000000000000000000066; };
+		C000000000000000000000CB = {isa = PBXBuildFile; fileRef = C00000000000000000000067; };
+		C000000000000000000000CC = {isa = PBXBuildFile; fileRef = C00000000000000000000068; };
+		C000000000000000000000CD = {isa = PBXBuildFile; fileRef = C00000000000000000000069; };
+		C000000000000000000000CE = {isa = PBXBuildFile; fileRef = C0000000000000000000006A; };
+		C000000000000000000000CF = {isa = PBXBuildFile; fileRef = C0000000000000000000006B; };
+		C000000000000000000000D0 = {isa = PBXBuildFile; fileRef = C0000000000000000000006C; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +38,15 @@
 		B00000000000000000000017 /* Steps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Steps; sourceTree = "<group>"; };
 		B00000000000000000000018 /* Scene README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B00000000000000000000019 /* Step-01-Verification.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Step-01-Verification.md"; sourceTree = "<group>"; };
+		C00000000000000000000064 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolSelection.swift; sourceTree = "<group>"; };
+		C00000000000000000000065 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
+		C00000000000000000000066 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopScene.swift; sourceTree = "<group>"; };
+		C00000000000000000000067 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopView.swift; sourceTree = "<group>"; };
+		C00000000000000000000068 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateStyle.swift; sourceTree = "<group>"; };
+		C00000000000000000000069 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEntityFactory.swift; sourceTree = "<group>"; };
+		C0000000000000000000006A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassEntityFactory.swift; sourceTree = "<group>"; };
+		C0000000000000000000006B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntityFactory.swift; sourceTree = "<group>"; };
+		C0000000000000000000006C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMaterials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +100,71 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B00000000000000000000034 /* App */ = {isa = PBXGroup; children = (B00000000000000000000011 /* BoardMateApp.swift */); path = App; sourceTree = "<group>"; };
-		B00000000000000000000035 /* Features */ = {isa = PBXGroup; children = (B00000000000000000000036 /* Tabletop */); path = Features; sourceTree = "<group>"; };
-		B00000000000000000000036 /* Tabletop */ = {isa = PBXGroup; children = (B00000000000000000000012 /* ContentView.swift */); path = Tabletop; sourceTree = "<group>"; };
-		B00000000000000000000037 /* Scene */ = {isa = PBXGroup; children = (B00000000000000000000018 /* Scene README.md */); path = Scene; sourceTree = "<group>"; };
+		B00000000000000000000034 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B00000000000000000000011 /* BoardMateApp.swift */,
+				C00000000000000000000068 /* BoardMateStyle.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B00000000000000000000035 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B00000000000000000000036 /* Tabletop */,
+				C00000000000000000000200 /* Dice */,
+				C00000000000000000000201 /* Hourglass */,
+				C00000000000000000000202 /* Tokens */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B00000000000000000000036 /* Tabletop */ = {
+			isa = PBXGroup;
+			children = (
+				B00000000000000000000012 /* ContentView.swift */,
+				C00000000000000000000064 /* ToolSelection.swift */,
+				C00000000000000000000065 /* CameraCoordinator.swift */,
+				C00000000000000000000066 /* TabletopScene.swift */,
+				C00000000000000000000067 /* TabletopView.swift */,
+			);
+			path = Tabletop;
+			sourceTree = "<group>";
+		};
+		B00000000000000000000037 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B00000000000000000000018 /* Scene README.md */,
+				C0000000000000000000006C /* EntityMaterials.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000200 /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000069 /* DiceEntityFactory.swift */,
+			);
+			path = Dice;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000201 /* Hourglass */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000006A /* HourglassEntityFactory.swift */,
+			);
+			path = Hourglass;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000202 /* Tokens */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000006B /* TokenEntityFactory.swift */,
+			);
+			path = Tokens;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +235,15 @@
 			files = (
 				B00000000000000000000001 /* BoardMateApp.swift in Sources */,
 				B00000000000000000000002 /* ContentView.swift in Sources */,
+				C000000000000000000000D0,
+				C000000000000000000000CF,
+				C000000000000000000000CE,
+				C000000000000000000000CD,
+				C000000000000000000000CC,
+				C000000000000000000000CB,
+				C000000000000000000000CA,
+				C000000000000000000000C9,
+				C000000000000000000000C8,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
