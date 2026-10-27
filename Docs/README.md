@@ -5,6 +5,7 @@ BoardMate(보드메이트)는 하나의 빈티지 책상에서 주사위·모래
 - [전체 작업 계획](2026-10-27-001-feat-boardmate-mvp-plan.md)
 - [Step 01 환경·검증 기록](Step-01-Verification.md)
 - [Step 02 장면·검증 기록](QA/Tabletop-Scene.md)
+- [Step 03 세션 상태·검증 기록](QA/Session-State.md)
 - [3D 자산 목록](Assets/Asset-Manifest.md)
 - [원본 PRD v0.2](boardgame-tools-prd.html) — 전달받은 HTML을 내용 변경 없이 복사했습니다.
 - [Step 01 · 프로젝트와 정책](Steps/Step-01-Project-Foundation.md)
@@ -17,6 +18,8 @@ BoardMate(보드메이트)는 하나의 빈티지 책상에서 주사위·모래
 - [Step 08 · 통합 검수](Steps/Step-08-MVP-Verification.md)
 
 ## 현재 상태
+
+Step 03에서 루트 소유 세션·공통 입력 검증·주사위/시간/토큰 값 상태와 시계·난수·완료 효과 주입 경계를 구현했습니다. 선택·패널 재생성·비활성 복귀에서 상태를 유지하며 새 세션은 기본값으로 초기화합니다. Swift Testing으로 상태와 입력 경계를 검증했으며 도구별 조작 UI·흔들기·진동·3D 기능 연결은 Step 04~06에 남아 있습니다. 검증 증거와 미정 정책은 [Step 03 기록](QA/Session-State.md)을 따릅니다.
 
 2026-10-27 기준, Step 01의 앱·SwiftUI 화면·RealityKit 예정 경로 분리와 프로젝트 설정의 정적 검증을 반영했습니다. 지원 범위는 사용자 결정에 따라 iPhone·세로 방향입니다. Xcode 26.2에서 Debug·Release 빌드·정적 분석과 SwiftLint 검사를 통과하고 iPhone 17 Pro / iOS 26.3.1 시뮬레이터에서 기본 화면 실행을 확인했습니다. 실기기 실행 증거는 후속으로 남깁니다. Step 02에서 실제 3D 도구·월넛 책상·선택과 가상 시점 전환을 구현하고 시뮬레이터 검증을 추가했습니다. 굴림·시간·지급 규칙은 후속 단계에서 구현합니다. Step 02 실기기 식별·선택·성능 검수는 남아 있습니다.
 

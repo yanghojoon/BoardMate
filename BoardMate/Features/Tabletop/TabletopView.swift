@@ -9,9 +9,11 @@ import RealityKit
 import SwiftUI
 
 struct TabletopView: View {
+    let session: BoardMateSession
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var coordinator = CameraCoordinator()
     @State private var scene = TabletopScene()
+
+    private var coordinator: CameraCoordinator { session.navigation }
 
     private var usesReducedMotion: Bool {
         #if DEBUG

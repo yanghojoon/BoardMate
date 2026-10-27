@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    let session: BoardMateSession
+
     var body: some View {
-        TabletopView()
+        TabletopView(session: session)
     }
 }
