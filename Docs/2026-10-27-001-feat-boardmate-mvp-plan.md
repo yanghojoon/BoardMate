@@ -26,8 +26,8 @@ Xcode에서 SwiftUI와 RealityKit을 사용해 iOS 26 이상 BoardMate를 구현
 - 기존 형제 프로젝트 BoardGameBox는 SwiftUI 제목과 동작 없는 버튼만 있는 iOS 16.4 프로젝트다. 재사용할 게임 로직·3D 자산·테스트가 없어 별도 신규 프로젝트로 구성한다.
 - 관련 기존 기술 전략, 계획, 학습 문서는 발견되지 않았다. 기존 아키텍처를 그대로 승계할 근거가 없다.
 - 초기 환경 확인에서 활성 개발자 경로가 Command Line Tools여서 Xcode 빌드를 실행할 수 없었다. 이는 Xcode 설치 여부 전체를 단정한 결과가 아니다. Step 01에서 iOS 26 SDK를 포함한 Xcode 경로를 확인하고, 필요한 경우 작업별 개발자 경로를 지정한다.
-- 이번 기본 프로젝트는 iPhone·세로 방향을 임시 설정으로 사용한다. 지원 범위의 최종 결정으로 간주하지 않는다.
-- 실기기 서명을 위한 개발 팀과 Bundle Identifier는 임시값에서 실제 값으로 설정해야 한다.
+- 2026-10-27 Step 01 사용자 결정: iPhone·세로 방향을 지원한다. 실기기 모델·OS는 추후 제공하며 아직 선정되지 않았다.
+- Step 01에서 Bundle Identifier를 `com.yanghojoon.BoardMate`로 설정하고 프로젝트에 추가된 개발 팀 `FA464JRW3F`를 보존했다. 계정 등록·프로비저닝·실기기 서명은 미검증이다. 현재 환경과 남은 실행 검증은 [Step 01 검증 기록](Step-01-Verification.md)을 따른다.
 
 ---
 
@@ -47,11 +47,11 @@ Xcode에서 SwiftUI와 RealityKit을 사용해 iOS 26 이상 BoardMate를 구현
 
 ## 미정 정책과 결정 시점
 
-아래 **제안은 사용자 확정 사항이 아니다.** 계획 수립과 공통 골격 작업을 진행하되, 해당 기능 구현 전 결정 결과를 이 표에 기록한다. 확정 범위를 늘리는 선택은 별도 논의한다.
+아래 항목 중 P-01의 iPhone·세로 방향만 사용자 확정 사항이다. 나머지 **제안은 사용자 확정 사항이 아니다.** 해당 기능 구현 전 결정 결과를 이 표에 기록한다. 확정 범위를 늘리는 선택은 별도 논의한다.
 
 | ID   | PRD 미정 항목         | 계획용 제안                                                                                           | 결정 시점                                  |
 | ---- | ----------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------- |
-| P-01 | 지원 기기·방향          | 우선 iPhone 세로. 최소 성능 검수용 실제 iPhone과 큰 화면 iPhone을 선정한다. iPad는 자동 포함하지 않는다.                         | Step 01, 실기기 기준은 Step 02 전             |
+| P-01 | 지원 기기·방향          | 2026-10-27 사용자 확정: iPhone·세로 방향, iPad 제외. 검수 실기기 모델·OS는 추후 제공 예정.                         | Step 01, 실기기 기준은 Step 02 전             |
 | P-02 | 굴림 도중 전환          | 시작 시 결과를 고정하고 화면 밖에서도 회차를 한 번 완료한다. 복귀 시 새 난수 생성 없이 결과로 정렬한다.                                    | Step 04 전                              |
 | P-03 | 대기 중 주사위 개수 변경    | 다음 굴림 설정과 직전 결과 당시의 개수를 구분해 표시한다. 이전 결과를 잘라내거나 복제하지 않는다.                                         | Step 04 전                              |
 | P-04 | 시간 단위·상한·실행 중 변경  | 분·초 입력, 1초~59분 59초. 실행 중 설정 변경은 차단하고 리셋 후 변경한다.                                                  | Step 05 전                              |
@@ -105,14 +105,15 @@ flowchart TB
 BoardMate/
 ├── BoardMate.xcodeproj/
 ├── BoardMate/
-│   ├── BoardMateApp.swift
-│   ├── ContentView.swift
-│   ├── App/                 # 세션 상태와 공통 검증
+│   ├── App/
+│   │   └── BoardMateApp.swift # 앱 진입점, 세션 상태는 Step 03
 │   ├── Features/
 │   │   ├── Tabletop/
+│   │   │   └── ContentView.swift # 기본 SwiftUI 화면
 │   │   ├── Dice/
 │   │   ├── Hourglass/
 │   │   └── Tokens/
+│   ├── Scene/               # RealityKit 예정 경로, 현재 README만 존재
 │   ├── Infrastructure/      # 모션·시계·진동 경계
 │   └── Resources/           # 3D 모델·재질
 ├── BoardMateTests/          # Step 03 이후 추가
@@ -124,7 +125,7 @@ BoardMate/
     └── Steps/
 ```
 
-App·Features·Infrastructure·테스트와 3D 리소스는 이후 Step에서 생성할 **예정 경로**다. 기본 골격 단계에서 구현 완료되었다고 간주하지 않는다.
+App·Features/Tabletop은 기본 SwiftUI 소스가 있는 경로이며 Scene은 README만 있는 RealityKit 예정 경로다. 나머지 Features·Infrastructure·테스트·3D 리소스는 후속 Step의 예정 경로이며 구현 완료로 간주하지 않는다.
 
 ---
 
