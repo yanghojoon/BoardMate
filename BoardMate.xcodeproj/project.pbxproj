@@ -22,6 +22,7 @@
 		B00000000000000000000016 /* 2026-10-27-001-feat-boardmate-mvp-plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "2026-10-27-001-feat-boardmate-mvp-plan.md"; sourceTree = "<group>"; };
 		B00000000000000000000017 /* Steps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Steps; sourceTree = "<group>"; };
 		B00000000000000000000018 /* Scene README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B00000000000000000000019 /* Step-01-Verification.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Step-01-Verification.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 				B00000000000000000000015 /* boardgame-tools-prd.html */,
 				B00000000000000000000016 /* 2026-10-27-001-feat-boardmate-mvp-plan.md */,
 				B00000000000000000000017 /* Steps */,
+				B00000000000000000000019 /* Step-01-Verification.md */,
 			);
 			path = Docs;
 			sourceTree = "<group>";
