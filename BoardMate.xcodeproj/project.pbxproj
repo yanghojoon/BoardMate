@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
+		C00000000000000000000137 = {isa = PBXContainerItemProxy; containerPortal = B00000000000000000000050; proxyType = 1; remoteGlobalIDString = B00000000000000000000040; remoteInfo = BoardMate; };
+		C0000000000000000000019B = {isa = PBXContainerItemProxy; containerPortal = B00000000000000000000050; proxyType = 1; remoteGlobalIDString = B00000000000000000000040; remoteInfo = BoardMate; };
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXTargetDependency section */
+		C00000000000000000000136 = {isa = PBXTargetDependency; target = B00000000000000000000040; targetProxy = C00000000000000000000137; };
+		C0000000000000000000019A = {isa = PBXTargetDependency; target = B00000000000000000000040; targetProxy = C0000000000000000000019B; };
 /* End PBXTargetDependency section */
 
 /* Begin PBXBuildFile section */
@@ -25,6 +29,9 @@
 		C000000000000000000000CE = {isa = PBXBuildFile; fileRef = C0000000000000000000006A; };
 		C000000000000000000000CF = {isa = PBXBuildFile; fileRef = C0000000000000000000006B; };
 		C000000000000000000000D0 = {isa = PBXBuildFile; fileRef = C0000000000000000000006C; };
+		C0000000000000000000012F = {isa = PBXBuildFile; fileRef = C0000000000000000000012E; };
+		C00000000000000000000193 = {isa = PBXBuildFile; fileRef = C00000000000000000000192; };
+		C000000000000000000001F5 = {isa = PBXBuildFile; fileRef = C000000000000000000001F4; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +54,11 @@
 		C0000000000000000000006A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassEntityFactory.swift; sourceTree = "<group>"; };
 		C0000000000000000000006B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntityFactory.swift; sourceTree = "<group>"; };
 		C0000000000000000000006C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMaterials.swift; sourceTree = "<group>"; };
+		C0000000000000000000012D = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0000000000000000000012E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinatorTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000191 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00000000000000000000192 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopNavigationTests.swift; sourceTree = "<group>"; };
+		C000000000000000000001F4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolEntityFactoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +69,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C00000000000000000000131 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000195 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B00000000000000000000030 = {
 			isa = PBXGroup;
 			children = (
+				C00000000000000000000203 /* BoardMateTests */,
+				C00000000000000000000204 /* BoardMateUITests */,
 				B00000000000000000000031 /* BoardMate */,
 				B00000000000000000000032 /* Docs */,
 				B00000000000000000000033 /* Products */,
@@ -96,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				B00000000000000000000010 /* BoardMate.app */,
+				C00000000000000000000191,
+				C0000000000000000000012D,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,6 +183,23 @@
 			path = Tokens;
 			sourceTree = "<group>";
 		};
+		C00000000000000000000203 /* BoardMateTests */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000012E /* CameraCoordinatorTests.swift */,
+				C000000000000000000001F4 /* ToolEntityFactoryTests.swift */,
+			);
+			path = BoardMateTests;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000204 /* BoardMateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000192 /* TabletopNavigationTests.swift */,
+			);
+			path = BoardMateUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,6 +220,8 @@
 			productReference = B00000000000000000000010 /* BoardMate.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C0000000000000000000012C = {isa = PBXNativeTarget; buildConfigurationList = C00000000000000000000133; buildPhases = (C00000000000000000000130,C00000000000000000000131,C00000000000000000000132,); buildRules = (); dependencies = (C00000000000000000000136,); name = BoardMateTests; productName = BoardMateTests; productReference = C0000000000000000000012D; productType = "com.apple.product-type.bundle.unit-test"; };
+		C00000000000000000000190 = {isa = PBXNativeTarget; buildConfigurationList = C00000000000000000000197; buildPhases = (C00000000000000000000194,C00000000000000000000195,C00000000000000000000196,); buildRules = (); dependencies = (C0000000000000000000019A,); name = BoardMateUITests; productName = BoardMateUITests; productReference = C00000000000000000000191; productType = "com.apple.product-type.bundle.ui-testing"; };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,6 +250,8 @@
 			projectRoot = "";
 			targets = (
 				B00000000000000000000040 /* BoardMate */,
+				C00000000000000000000190,
+				C0000000000000000000012C,
 			);
 		};
 /* End PBXProject section */
@@ -226,6 +265,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C00000000000000000000132 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000196 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -247,6 +288,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C00000000000000000000130 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C0000000000000000000012F,C000000000000000000001F5,); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000194 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C00000000000000000000193,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -342,6 +385,76 @@
 			};
 			name = Release;
 		};
+		C00000000000000000000134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FA464JRW3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoardMate";
+			};
+			name = Debug;
+		};
+		C00000000000000000000135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FA464JRW3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoardMate";
+			};
+			name = Release;
+		};
+		C00000000000000000000198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FA464JRW3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				TEST_TARGET_NAME = BoardMate;
+			};
+			name = Debug;
+		};
+		C00000000000000000000199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FA464JRW3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				TEST_TARGET_NAME = BoardMate;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,6 +476,8 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C00000000000000000000133 = {isa = XCConfigurationList; buildConfigurations = (C00000000000000000000134,C00000000000000000000135,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		C00000000000000000000197 = {isa = XCConfigurationList; buildConfigurations = (C00000000000000000000198,C00000000000000000000199,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 /* End XCConfigurationList section */
 	};
 	rootObject = B00000000000000000000050 /* Project object */;
