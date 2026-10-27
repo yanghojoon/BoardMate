@@ -4,6 +4,8 @@ BoardMate(보드메이트)는 하나의 빈티지 책상에서 주사위·모래
 
 - [전체 작업 계획](2026-10-27-001-feat-boardmate-mvp-plan.md)
 - [Step 01 환경·검증 기록](Step-01-Verification.md)
+- [Step 02 장면·검증 기록](QA/Tabletop-Scene.md)
+- [3D 자산 목록](Assets/Asset-Manifest.md)
 - [원본 PRD v0.2](boardgame-tools-prd.html) — 전달받은 HTML을 내용 변경 없이 복사했습니다.
 - [Step 01 · 프로젝트와 정책](Steps/Step-01-Project-Foundation.md)
 - [Step 02 · 실제 3D 도구와 책상·카메라](Steps/Step-02-Tabletop-Camera.md)
@@ -16,7 +18,7 @@ BoardMate(보드메이트)는 하나의 빈티지 책상에서 주사위·모래
 
 ## 현재 상태
 
-2026-10-27 기준, Step 01의 앱·SwiftUI 화면·RealityKit 예정 경로 분리와 프로젝트 설정의 정적 검증을 반영했습니다. 지원 범위는 사용자 결정에 따라 iPhone·세로 방향입니다. Xcode 26.2에서 Debug·Release 빌드·정적 분석과 SwiftLint 검사를 통과하고 iPhone 17 Pro / iOS 26.3.1 시뮬레이터에서 기본 화면 실행을 확인했습니다. 실기기 실행 증거는 후속으로 남깁니다. 세 도구의 기능과 3D 장면은 후속 단계에서 구현합니다.
+2026-10-27 기준, Step 01의 앱·SwiftUI 화면·RealityKit 예정 경로 분리와 프로젝트 설정의 정적 검증을 반영했습니다. 지원 범위는 사용자 결정에 따라 iPhone·세로 방향입니다. Xcode 26.2에서 Debug·Release 빌드·정적 분석과 SwiftLint 검사를 통과하고 iPhone 17 Pro / iOS 26.3.1 시뮬레이터에서 기본 화면 실행을 확인했습니다. 실기기 실행 증거는 후속으로 남깁니다. Step 02에서 실제 3D 도구·월넛 책상·선택과 가상 시점 전환을 구현하고 시뮬레이터 검증을 추가했습니다. 굴림·시간·지급 규칙은 후속 단계에서 구현합니다. Step 02 실기기 식별·선택·성능 검수는 남아 있습니다.
 
 같은 날짜의 사용자 결정으로 임시 도형 제작 후 최종 모델로 교체하는 순서를 변경했습니다. Step 02부터 실제 사용할 RealityKit 주사위·모래시계·토큰의 형태와 기본 빈티지 재질을 만들고, Step 04~06에서 같은 엔티티에 기능과 연출을 연결합니다. Step 07은 표현 조정과 접근성 검수입니다. 원본 PRD 09절의 이전 납품 순서보다 수정된 전체 계획과 Step 문서를 우선합니다.
 

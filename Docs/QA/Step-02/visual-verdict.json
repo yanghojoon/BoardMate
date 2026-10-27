@@ -1,0 +1,16 @@
+{
+  "iteration": 2,
+  "verdict": "pass-with-device-validation-pending",
+  "evidence": "Docs/QA/Step-02",
+  "checks": [
+    "all tool closeups framed",
+    "D6 pips identifiable",
+    "five token values legible",
+    "hourglass 0/50/100 distinguishable",
+    "shadow acne resolved with SDK default depth bias"
+  ],
+  "remaining": [
+    "physical iPhone readability and transparent glass",
+    "GPU frame rate and memory profiling"
+  ]
+}
