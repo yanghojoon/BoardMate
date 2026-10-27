@@ -83,11 +83,15 @@ struct TabletopView: View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("BOARDMATE").font(.caption.weight(.semibold)).tracking(3)
-                Text(coordinator.selectedTool?.title ?? "우리의 게임 책상")
-                    .font(.system(.title, design: .serif, weight: .semibold))
-                    .accessibilityIdentifier("tabletop.selection")
-                    .accessibilityValue(coordinator.selectedTool?.rawValue ?? "overview")
+                if let tool = coordinator.selectedTool {
+                    Text(tool.title)
+                        .font(.system(.title, design: .serif, weight: .semibold))
+                }
             }
+            .frame(height: 60, alignment: .topLeading)
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("tabletop.selection")
+            .accessibilityValue(coordinator.selectedTool?.rawValue ?? "overview")
             Spacer()
             Button {
                 coordinator.select(nil, reduceMotion: usesReducedMotion)
