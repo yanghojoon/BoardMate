@@ -25,9 +25,9 @@ Xcode에서 SwiftUI와 RealityKit을 사용해 iOS 26 이상 BoardMate를 구현
 - 기준: [PRD v0.2](boardgame-tools-prd.html), 작성일 2026-10-26. PRD의 작업명은 앱 이름 BoardMate로 사용한다.
 - 기존 형제 프로젝트 BoardGameBox는 SwiftUI 제목과 동작 없는 버튼만 있는 iOS 16.4 프로젝트다. 재사용할 게임 로직·3D 자산·테스트가 없어 별도 신규 프로젝트로 구성한다.
 - 관련 기존 기술 전략, 계획, 학습 문서는 발견되지 않았다. 기존 아키텍처를 그대로 승계할 근거가 없다.
-- 초기 환경 확인에서 활성 개발자 경로가 Command Line Tools여서 Xcode 빌드를 실행할 수 없었다. 이는 Xcode 설치 여부 전체를 단정한 결과가 아니다. Step 01에서 iOS 26 SDK를 포함한 Xcode 경로를 확인하고, 필요한 경우 작업별 개발자 경로를 지정한다.
+- 초기 활성 개발자 경로는 Command Line Tools였다. Step 01 재검증에서 `~/Downloads/Xcode.app`의 Xcode 26.2와 iOS 26.2 SDK를 확인하고 작업별 `DEVELOPER_DIR` 지정으로 Debug·Release 빌드·정적 분석 및 iPhone 17 Pro / iOS 26.3.1 기본 화면 실행을 완료했다.
 - 2026-10-27 Step 01 사용자 결정: iPhone·세로 방향을 지원한다. 실기기 모델·OS는 추후 제공하며 아직 선정되지 않았다.
-- Step 01에서 Bundle Identifier를 `com.yanghojoon.BoardMate`로 설정하고 프로젝트에 추가된 개발 팀 `FA464JRW3F`를 보존했다. 계정 등록·프로비저닝·실기기 서명은 미검증이다. 현재 환경과 남은 실행 검증은 [Step 01 검증 기록](Step-01-Verification.md)을 따른다.
+- Step 01에서 Bundle Identifier를 `com.yanghojoon.BoardMate`로 설정하고 프로젝트에 추가된 개발 팀 `FA464JRW3F`를 보존했다. 사용자가 팀·기기 등록 이슈를 수정했다. 시뮬레이터 검증은 통과했으며 실기기 서명·실행 증거는 후속이다. 현재 환경과 남은 실행 검증은 [Step 01 검증 기록](Step-01-Verification.md)을 따른다.
 
 ---
 
