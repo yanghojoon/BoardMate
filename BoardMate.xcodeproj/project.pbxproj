@@ -1,7 +1,8 @@
 // !$*UTF8*$!
 {
 	archiveVersion = 1;
-	classes = {};
+	classes = {
+	};
 	objectVersion = 56;
 	objects = {
 
@@ -18,47 +19,80 @@
 		B00000000000000000000013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00000000000000000000014 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B00000000000000000000015 /* boardgame-tools-prd.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "boardgame-tools-prd.html"; sourceTree = "<group>"; };
-		B00000000000000000000016 /* MVP Plan */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "2026-10-27-001-feat-boardmate-mvp-plan.md"; sourceTree = "<group>"; };
+		B00000000000000000000016 /* 2026-10-27-001-feat-boardmate-mvp-plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "2026-10-27-001-feat-boardmate-mvp-plan.md"; sourceTree = "<group>"; };
 		B00000000000000000000017 /* Steps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Steps; sourceTree = "<group>"; };
+		B00000000000000000000018 /* Scene README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B00000000000000000000020 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		B00000000000000000000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B00000000000000000000030 = {
 			isa = PBXGroup;
-			children = (B00000000000000000000031 /* BoardMate */, B00000000000000000000032 /* Docs */, B00000000000000000000033 /* Products */);
+			children = (
+				B00000000000000000000031 /* BoardMate */,
+				B00000000000000000000032 /* Docs */,
+				B00000000000000000000033 /* Products */,
+			);
 			sourceTree = "<group>";
 		};
 		B00000000000000000000031 /* BoardMate */ = {
 			isa = PBXGroup;
-			children = (B00000000000000000000011 /* BoardMateApp.swift */, B00000000000000000000012 /* ContentView.swift */, B00000000000000000000013 /* Assets.xcassets */);
+			children = (
+				B00000000000000000000034 /* App */,
+				B00000000000000000000035 /* Features */,
+				B00000000000000000000037 /* Scene */,
+				B00000000000000000000013 /* Assets.xcassets */,
+			);
 			path = BoardMate;
 			sourceTree = "<group>";
 		};
 		B00000000000000000000032 /* Docs */ = {
 			isa = PBXGroup;
-			children = (B00000000000000000000014 /* README.md */, B00000000000000000000015 /* boardgame-tools-prd.html */, B00000000000000000000016 /* MVP Plan */, B00000000000000000000017 /* Steps */);
+			children = (
+				B00000000000000000000014 /* README.md */,
+				B00000000000000000000015 /* boardgame-tools-prd.html */,
+				B00000000000000000000016 /* 2026-10-27-001-feat-boardmate-mvp-plan.md */,
+				B00000000000000000000017 /* Steps */,
+			);
 			path = Docs;
 			sourceTree = "<group>";
 		};
 		B00000000000000000000033 /* Products */ = {
 			isa = PBXGroup;
-			children = (B00000000000000000000010 /* BoardMate.app */);
+			children = (
+				B00000000000000000000010 /* BoardMate.app */,
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B00000000000000000000034 /* App */ = {isa = PBXGroup; children = (B00000000000000000000011 /* BoardMateApp.swift */); path = App; sourceTree = "<group>"; };
+		B00000000000000000000035 /* Features */ = {isa = PBXGroup; children = (B00000000000000000000036 /* Tabletop */); path = Features; sourceTree = "<group>"; };
+		B00000000000000000000036 /* Tabletop */ = {isa = PBXGroup; children = (B00000000000000000000012 /* ContentView.swift */); path = Tabletop; sourceTree = "<group>"; };
+		B00000000000000000000037 /* Scene */ = {isa = PBXGroup; children = (B00000000000000000000018 /* Scene README.md */); path = Scene; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
 		B00000000000000000000040 /* BoardMate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B00000000000000000000061;
-			buildPhases = (B00000000000000000000021 /* Sources */, B00000000000000000000020 /* Frameworks */, B00000000000000000000022 /* Resources */);
-			buildRules = ();
-			dependencies = ();
+			buildConfigurationList = B00000000000000000000061 /* Build configuration list for PBXNativeTarget "BoardMate" */;
+			buildPhases = (
+				B00000000000000000000021 /* Sources */,
+				B00000000000000000000020 /* Frameworks */,
+				B00000000000000000000022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
 			name = BoardMate;
 			productName = BoardMate;
 			productReference = B00000000000000000000010 /* BoardMate.app */;
@@ -71,27 +105,52 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				TargetAttributes = {B00000000000000000000040 = {ProvisioningStyle = Automatic; }; };
+				TargetAttributes = {
+					B00000000000000000000040 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
-			buildConfigurationList = B00000000000000000000060;
+			buildConfigurationList = B00000000000000000000060 /* Build configuration list for PBXProject "BoardMate" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = ko;
 			hasScannedForEncodings = 0;
-			knownRegions = (ko, en, Base);
+			knownRegions = (
+				ko,
+				en,
+				Base,
+			);
 			mainGroup = B00000000000000000000030;
-			productRefGroup = B00000000000000000000033;
+			productRefGroup = B00000000000000000000033 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
-			targets = (B00000000000000000000040 /* BoardMate */);
+			targets = (
+				B00000000000000000000040 /* BoardMate */,
+			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B00000000000000000000022 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000003 /* Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+		B00000000000000000000022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000003 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B00000000000000000000021 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000001 /* BoardMateApp.swift in Sources */, B00000000000000000000002 /* ContentView.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+		B00000000000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000001 /* BoardMateApp.swift in Sources */,
+				B00000000000000000000002 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -133,6 +192,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FA464JRW3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BoardMate;
@@ -141,9 +201,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.BoardMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -159,6 +222,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FA464JRW3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BoardMate;
@@ -167,9 +231,12 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.BoardMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -182,8 +249,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B00000000000000000000060 = {isa = XCConfigurationList; buildConfigurations = (B00000000000000000000070 /* Debug */, B00000000000000000000071 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
-		B00000000000000000000061 = {isa = XCConfigurationList; buildConfigurations = (B00000000000000000000072 /* Debug */, B00000000000000000000073 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		B00000000000000000000060 /* Build configuration list for PBXProject "BoardMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B00000000000000000000070 /* Debug */,
+				B00000000000000000000071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B00000000000000000000061 /* Build configuration list for PBXNativeTarget "BoardMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B00000000000000000000072 /* Debug */,
+				B00000000000000000000073 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 	};
 	rootObject = B00000000000000000000050 /* Project object */;
