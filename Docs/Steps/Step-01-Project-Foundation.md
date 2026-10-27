@@ -7,10 +7,10 @@
 
 ## 작업
 
-- [x] 기본 프로젝트의 iOS 26·Swift 6·앱 타깃·공유 Scheme 설정을 확인한다. (파일 정적 검증, Xcode 인식은 미검증)
-- [ ] iOS 26 SDK가 포함된 Xcode와 Simulator를 확인하고 실제 선택한 Xcode 버전을 기록한다.
+- [x] 기본 프로젝트의 iOS 26·Swift 6·앱 타깃·공유 Scheme 설정을 확인한다. (Xcode 26.2 인식 및 Debug·Release 최종 설정 확인)
+- [x] iOS 26 SDK가 포함된 Xcode와 Simulator를 확인하고 실제 선택한 Xcode 버전을 기록한다. (Xcode 26.2 / SDK 26.2 / iPhone 17 Pro iOS 26.3.1)
 - [x] P-01 지원 기기·방향을 결정한다. 2026-10-27 사용자 결정: iPhone·세로 방향.
-- [ ] 실기기 검수 기기를 선정하고 개발 팀·고유 Bundle Identifier를 설정한다. (팀·식별자 설정됨, 서명 검증·실기기 선정 대기)
+- [ ] 실기기 검수 기기를 선정하고 개발 팀·고유 Bundle Identifier를 설정한다. (사용자가 팀·기기 등록 이슈 수정 완료를 알림. 이번 요청은 시뮬레이터 검증이며 실기기 모델·OS 기록과 실행 증거는 후속)
 - [x] SwiftUI 화면과 RealityKit 장면을 분리하는 디렉터리 구성을 준비한다.
 - [x] Docs의 Xcode 탐색기 참조와 Resources 빌드 단계 제외를 확인한다. (프로젝트 파일 기준, 실제 탐색기 표시는 미검증)
 - [x] 소스 헤더의 작성자 양호준과 실제 생성일을 확인한다. (기존 두 소스를 내용 변경 없이 이동, 새 Swift 소스 없음)
@@ -33,7 +33,7 @@ Apple 기본 SwiftUI App 진입점을 사용한다. 기존 BoardGameBox의 개�
 
 ## 2026-10-27 작업 결과
 
-프로젝트 구조·정책·정적 검증을 반영했다. **Step 01 전체 완료는 보류**한다. 현재 환경에서는 Xcode·iOS 26 SDK·Simulator를 확인하지 못해 Debug·Release 빌드 및 기본 화면 실행을 검증하지 못했다. 실기기 모델과 OS는 사용자가 추후 제공한다.
+프로젝트 구조·정책·정적 검증과 **시뮬레이터 검증을 완료**했다. 사용자 제공 경로의 Xcode 26.2로 Debug·Release 빌드 및 정적 분석을 통과했고 iPhone 17 Pro / iOS 26.3.1에서 기본 화면을 확인했다. SwiftLint 위반은 0건이다. 사용자 요청에 따라 실기기 실행은 이번 검증에서 제외했다. 실기기 모델·OS 기록과 서명 실행 증거는 후속으로 남긴다.
 
 프로젝트에 작업 중 추가된 Team ID `FA464JRW3F`를 보존했고, Bundle Identifier는 `com.yanghojoon.BoardMate`로 설정했다. Apple 계정의 App ID 등록 가능 여부와 프로비저닝은 미검증이다.
 

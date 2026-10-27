@@ -16,11 +16,11 @@ BoardMate(보드메이트)는 하나의 빈티지 책상에서 주사위·모래
 
 ## 현재 상태
 
-2026-10-27 기준, Step 01의 앱·SwiftUI 화면·RealityKit 예정 경로 분리와 프로젝트 설정의 정적 검증을 반영했습니다. 지원 범위는 사용자 결정에 따라 iPhone·세로 방향입니다. Xcode·iOS 26 SDK·Simulator를 확인하지 못해 빌드와 기본 화면 실행은 미검증이며, Step 01 전체 완료는 보류합니다. 세 도구의 기능과 3D 장면은 후속 단계에서 구현합니다.
+2026-10-27 기준, Step 01의 앱·SwiftUI 화면·RealityKit 예정 경로 분리와 프로젝트 설정의 정적 검증을 반영했습니다. 지원 범위는 사용자 결정에 따라 iPhone·세로 방향입니다. Xcode 26.2에서 Debug·Release 빌드·정적 분석과 SwiftLint 검사를 통과하고 iPhone 17 Pro / iOS 26.3.1 시뮬레이터에서 기본 화면 실행을 확인했습니다. 실기기 실행 증거는 후속으로 남깁니다. 세 도구의 기능과 3D 장면은 후속 단계에서 구현합니다.
 
 같은 날짜의 사용자 결정으로 임시 도형 제작 후 최종 모델로 교체하는 순서를 변경했습니다. Step 02부터 실제 사용할 RealityKit 주사위·모래시계·토큰의 형태와 기본 빈티지 재질을 만들고, Step 04~06에서 같은 엔티티에 기능과 연출을 연결합니다. Step 07은 표현 조정과 접근성 검수입니다. 원본 PRD 09절의 이전 납품 순서보다 수정된 전체 계획과 Step 문서를 우선합니다.
 
-Xcode에서 `BoardMate.xcodeproj`를 열고 BoardMate 스킴을 선택합니다. iOS 26 SDK를 포함한 Xcode와 iOS 26 이상 시뮬레이터 또는 iPhone이 필요합니다. Bundle Identifier는 `com.yanghojoon.BoardMate`, 프로젝트에 설정된 개발 팀은 `FA464JRW3F`입니다. 실기기 모델·OS는 추후 제공 예정이며, 개발 계정의 App ID 등록·프로비저닝·서명은 아직 검증하지 않았습니다.
+Xcode에서 `BoardMate.xcodeproj`를 열고 BoardMate 스킴을 선택합니다. iOS 26 SDK를 포함한 Xcode와 iOS 26 이상 시뮬레이터 또는 iPhone이 필요합니다. Bundle Identifier는 `com.yanghojoon.BoardMate`, 프로젝트에 설정된 개발 팀은 `FA464JRW3F`입니다. 사용자가 팀·기기 등록 이슈 수정을 완료했습니다. 이번 검증은 시뮬레이터에서 수행했으며 실기기 모델·OS 기록과 실기기 서명·실행 증거는 별도입니다.
 
 문서는 앱 리소스에 포함하지 않습니다. 구현 경로는 모두 프로젝트 루트 `BoardMate/` 기준이며, PRD의 미정 항목은 전체 계획의 정책 표에서 추적합니다.
 
