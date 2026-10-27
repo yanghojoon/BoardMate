@@ -43,7 +43,7 @@ struct TabletopView: View {
             })
             .accessibilityLabel("월넛 책상의 세 가지 보드게임 도구")
             .overlay(alignment: .bottom) {
-                Text(coordinator.isTransitioning ? "시점을 옮기는 중" : "도구를 선택해 가까이 살펴보세요")
+                Text(navigationHint)
                     .font(.caption)
                     .padding(10)
                     .background(BoardMateStyle.paper.opacity(0.92), in: Capsule())
@@ -67,6 +67,16 @@ struct TabletopView: View {
                 // A newer selection owns camera completion.
             }
         }
+    }
+
+    private var navigationHint: String {
+        if coordinator.isTransitioning {
+            return "시점을 옮기는 중"
+        }
+        if coordinator.selectedTool != nil {
+            return "다른 도구를 고르거나 책상으로 돌아가세요"
+        }
+        return "도구를 선택해 가까이 살펴보세요"
     }
 
     private var header: some View {
