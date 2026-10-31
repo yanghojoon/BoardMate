@@ -15,6 +15,7 @@ final class TabletopScene {
     let camera = PerspectiveCamera()
     private var cameraAnimation: AnimationPlaybackController?
     private let diceRoot = Entity()
+    private let hourglassRoot = HourglassEntityFactory.make()
 
     init() {
         root.name = "tabletop"
@@ -37,7 +38,7 @@ final class TabletopScene {
         }
         DiceEntityFactory.arrange([1, 1], on: diceRoot)
         addTool(diceRoot, tool: .dice, position: [-0.34, 0, 0.08], size: [0.42, 0.22, 0.30])
-        let hourglass = HourglassEntityFactory.make()
+        let hourglass = hourglassRoot
         #if DEBUG
             if let index = ProcessInfo.processInfo.arguments.firstIndex(of: "--hourglass-progress"),
                ProcessInfo.processInfo.arguments.indices.contains(index + 1),
@@ -99,6 +100,13 @@ final class TabletopScene {
             if seconds >= Float(DiceState.rollDuration) { return }
             do { try await Task.sleep(for: .milliseconds(16)) } catch { return }
         }
+    }
+
+    func showHourglass(_ state: HourglassState, isActive: Bool, reduceMotion: Bool) {
+        #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("--hourglass-progress") { return }
+        #endif
+        HourglassEntityFactory.update(state, on: hourglassRoot, isActive: isActive, reduceMotion: reduceMotion)
     }
 
     private func cameraTransform(for tool: ToolSelection?) -> Transform {

@@ -1,0 +1,17 @@
+{
+  "iteration": 2,
+  "verdict": "pass_with_device_checks_pending",
+  "method": "manual screenshot inspection; visual-verdict skill unavailable",
+  "evidence": [
+    "hourglass-idle.png",
+    "hourglass-finished.png",
+    "hourglass-resumed.png"
+  ],
+  "observations": [
+    "00:30 idle has upper sand only and enabled start",
+    "00:00 finished has lower sand only and disabled start",
+    "00:22 resumed shows reduced upper sand and accumulated lower sand",
+    "Minute/second settings and controls fit portrait viewport; keyboard dismissed"
+  ],
+  "device_verification": "Actual iPhone haptics, readability, and performance remain pending"
+}

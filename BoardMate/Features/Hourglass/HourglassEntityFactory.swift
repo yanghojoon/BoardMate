@@ -74,4 +74,10 @@ enum HourglassEntityFactory {
         }
         root.findEntity(named: "sand-stream")?.isEnabled = fraction > 0 && fraction < 1
     }
+
+    static func update(_ state: HourglassState, on root: Entity, isActive: Bool, reduceMotion: Bool) {
+        setProgress(Float(state.progress), on: root)
+        root.findEntity(named: "sand-stream")?.isEnabled =
+            state.phase == .running && state.remaining > 0 && isActive && !reduceMotion
+    }
 }

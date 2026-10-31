@@ -15,7 +15,6 @@ final class BoardMateSession {
     private(set) var hourglass = HourglassState()
     private(set) var tokens = TokenState()
     private(set) var isActive = false
-    private var deliveredTimerID: UUID?
     private let clock: SessionClock
     private let effects: SessionEffects
 
@@ -26,6 +25,7 @@ final class BoardMateSession {
 
     func setActive(_ active: Bool) {
         // Refresh before activating: expiry during inactivity is reflected without late feedback.
+        if !active { isActive = false }
         refreshTime()
         isActive = active
         if !active, let id = dice.rollID { dice.completeRoll(id: id) }
@@ -52,7 +52,7 @@ final class BoardMateSession {
 
     func configureTimer(seconds text: String) throws {
         try requireTool(.hourglass)
-        try hourglass.configure(duration: TimeInterval(InputValidation.integer(text, in: 1...Int.max)))
+        try hourglass.configure(duration: TimeInterval(InputValidation.integer(text, in: 1...3599)))
     }
 
     func startTimer() throws {
@@ -63,7 +63,6 @@ final class BoardMateSession {
     func resetTimer() throws {
         try requireTool(.hourglass)
         hourglass.reset()
-        deliveredTimerID = nil
     }
 
     func refreshTime() {
@@ -71,11 +70,8 @@ final class BoardMateSession {
         if let deadline = dice.deadline, clock.now() >= deadline {
             dice.refresh(at: clock.now())
         }
-        let wasRunning = hourglass.phase == .running
         hourglass.refresh(at: clock.now())
-        guard wasRunning, hourglass.phase == .finished,
-              let id = hourglass.runID, deliveredTimerID != id else { return }
-        deliveredTimerID = id
+        guard hourglass.consumeCompletion() else { return }
         if isActive { effects.timerFinished() }
     }
 
