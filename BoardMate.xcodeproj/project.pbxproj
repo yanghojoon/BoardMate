@@ -21,6 +21,8 @@
 		E00000000000000000000002 = {isa = PBXBuildFile; fileRef = E00000000000000000000012; };
 		E00000000000000000000003 = {isa = PBXBuildFile; fileRef = E00000000000000000000013; };
 		E00000000000000000000004 = {isa = PBXBuildFile; fileRef = E00000000000000000000014; };
+		E00000000000000000000005 = {isa = PBXBuildFile; fileRef = E00000000000000000000015; };
+		E00000000000000000000006 = {isa = PBXBuildFile; fileRef = E00000000000000000000016; };
 		B00000000000000000000001 /* BoardMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000011 /* BoardMateApp.swift */; };
 		B00000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000012 /* ContentView.swift */; };
 		B00000000000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000013 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		E00000000000000000000012 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceControlsView.swift; sourceTree = "<group>"; };
 		E00000000000000000000013 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSource.swift; sourceTree = "<group>"; };
 		E00000000000000000000014 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeInputBridge.swift; sourceTree = "<group>"; };
+		E00000000000000000000015 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceControllerTests.swift; sourceTree = "<group>"; };
+		E00000000000000000000016 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceFlowTests.swift; sourceTree = "<group>"; };
 		B00000000000000000000010 /* BoardMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00000000000000000000011 /* BoardMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateApp.swift; sourceTree = "<group>"; };
 		B00000000000000000000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				D0000000000000000000006C /* InputValidationTests.swift */,
 				D0000000000000000000006B /* SessionStateTests.swift */,
+				E00000000000000000000015 /* DiceControllerTests.swift */,
 				C0000000000000000000012E /* CameraCoordinatorTests.swift */,
 				C000000000000000000001F4 /* ToolEntityFactoryTests.swift */,
 			);
@@ -230,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000192 /* TabletopNavigationTests.swift */,
+				E00000000000000000000016 /* DiceFlowTests.swift */,
 			);
 			path = BoardMateUITests;
 			sourceTree = "<group>";
@@ -330,8 +336,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C00000000000000000000130 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (D000000000000000000000D0,D000000000000000000000CF,C0000000000000000000012F,C000000000000000000001F5,); runOnlyForDeploymentPostprocessing = 0; };
-		C00000000000000000000194 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C00000000000000000000193,); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000130 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (E00000000000000000000005,D000000000000000000000D0,D000000000000000000000CF,C0000000000000000000012F,C000000000000000000001F5,); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000194 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (E00000000000000000000006,C00000000000000000000193,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
