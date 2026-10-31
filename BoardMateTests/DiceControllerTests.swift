@@ -156,6 +156,15 @@ struct DiceControllerTests {
             let motion = DiceEntityFactory.RollMotion(start: start, finalRotation: final)
             #expect((0.88...1.18).contains(motion.duration))
             #expect(simd_distance(motion.transform(at: 0).translation, start.translation) < 0.0001)
+            let firstLanding = motion.transform(at: motion.duration * 0.5)
+            #expect(abs(simd_dot(firstLanding.rotation.vector, final.vector)) > 0.99999)
+            for frame in 30...60 {
+                let settled = motion.transform(at: motion.duration * Float(frame) / 60)
+                // Once landed, permit only a small rock, never a corrective turn or lateral return.
+                #expect(abs(simd_dot(settled.rotation.vector, final.vector)) >= cos(0.121 / 2))
+                #expect(abs(settled.translation.x - start.translation.x) < 0.00001)
+                #expect(abs(settled.translation.z - start.translation.z) < 0.00001)
+            }
             for frame in 0...80 {
                 let transform = motion.transform(at: Float(frame) / 60)
                 let matrix = simd_float3x3(transform.rotation)

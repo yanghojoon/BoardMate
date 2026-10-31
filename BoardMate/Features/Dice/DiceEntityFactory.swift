@@ -94,7 +94,7 @@ enum DiceEntityFactory {
             self.start = start
             let direction = Float.random(in: -.pi ... .pi)
             axis = simd_normalize(SIMD3<Float>(cos(direction), Float.random(in: -0.6...0.6), sin(direction)))
-            turns = Float.random(in: 2.5...4.5) * .pi
+            turns = Float(Int.random(in: 2...3)) * 2 * .pi
             duration = Float.random(in: 0.88...1.18)
             height = Float.random(in: 0.055...0.105)
             drift = [Float.random(in: -0.001...0.001), 0, Float.random(in: -0.001...0.001)]
@@ -103,11 +103,24 @@ enum DiceEntityFactory {
 
         func transform(at elapsed: Float) -> Transform {
             let progress = min(max(elapsed / duration, 0), 1)
-            let spinProgress = min(progress / 0.78, 1)
-            let spun = simd_quatf(angle: turns * (1 - pow(1 - spinProgress, 2)), axis: axis) * start.rotation
-            let settle = max(0, (progress - 0.78) / 0.22)
-            let rotation = simd_slerp(spun, finalRotation, settle * settle * (3 - 2 * settle))
-            // Three progressively smaller ballistic arcs, followed by a short settling rotation.
+            // Resolve the result during the first flight, before the die touches the table.
+            // Whole turns preserve the starting pose and decay to zero without a late correction.
+            let flightProgress = min(progress / 0.5, 1)
+            let alignment = flightProgress * flightProgress * (3 - 2 * flightProgress)
+            let spin = turns * pow(1 - flightProgress, 3)
+            let base = simd_slerp(start.rotation, finalRotation, alignment)
+            let rock: Float
+            if progress < 0.5 {
+                rock = 0
+            } else if progress < 0.75 {
+                let flight = (progress - 0.5) / 0.25
+                rock = 0.12 * sin(flight * .pi) * sin(flight * .pi)
+            } else {
+                let flight = (progress - 0.75) / 0.25
+                rock = -0.035 * sin(flight * .pi) * sin(flight * .pi)
+            }
+            let rotation = simd_quatf(angle: spin + rock, axis: axis) * base
+            // Three progressively smaller ballistic arcs with only minor rocking after contact.
             let bounce: Float
             if progress < 0.5 {
                 let flight = progress / 0.5
@@ -121,7 +134,8 @@ enum DiceEntityFactory {
             }
             let matrix = simd_float3x3(rotation)
             let support = 0.05 * start.scale.x * (abs(matrix[0].y) + abs(matrix[1].y) + abs(matrix[2].y))
-            var position = start.translation + drift * sin(progress * .pi)
+            let travel = sin(flightProgress * .pi)
+            var position = start.translation + drift * travel * travel
             position.y = max(start.translation.y + bounce, support)
             return Transform(scale: start.scale, rotation: rotation, translation: position)
         }

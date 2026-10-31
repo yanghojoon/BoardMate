@@ -37,6 +37,14 @@ Step 02의 아이보리 메시와 여섯 면 눈금을 복제해 최대 5열·2�
 - Release 빌드·정적 분석 통과: `/tmp/BoardMate-Dice-Motion-Final-Release.log`. SwiftLint strict 28개 파일 위반 0건: `/tmp/BoardMate-Dice-Motion-Final-Lint.log`.
 - [굴리기 전 10개 선택](Step-04/dice-10-selected.png), [서로 다른 자세로 움직이는 10개](Step-04/dice-10-motion.png), [착지 결과](Step-04/dice-10.png)를 확인했다. 최종 캡처에서 10개가 화면 안에 분리되어 표시되며 착지 윗면과 숫자 결과가 일치한다. 실제 기기에서의 움직임 체감과 성능은 아래 검수 항목으로 남긴다.
 
+## 착지 후 자세 보정 개선
+
+- 후속 피드백: 굴림 끝에서 제자리와 정답 자세를 다시 찾아가는 움직임이 어색했다. 마지막 22% 구간의 별도 자세 보간을 제거했다.
+- 첫 비행 중에 시작 자세에서 최종 자세로 정렬하고 독립적인 정수 회전의 잔여 각도를 감속시킨다. 첫 착지에서 회전 정렬과 옆 이동을 완료하며 이후에는 최대 0.12라디안의 작은 반동만 남긴다.
+- 기존 궤적 회귀 테스트에 첫 착지의 최종 자세 일치, 이후 회전 범위와 옆 이동 정지 검증을 추가했다. 결과 눈금·회차·개수 정책은 유지한다.
+- 단위 32개 정의·주사위 UI 3개 통과: `/tmp/BoardMate-Dice-Landing.xcresult`, 로그 `/tmp/BoardMate-Dice-Landing.log`. Release 빌드·정적 분석 통과: `/tmp/BoardMate-Dice-Landing-Release.log`. SwiftLint strict 28개 파일 위반 0건: `/tmp/BoardMate-Dice-Landing-Lint.log`.
+- `/tmp/BoardMate-Dice-Landing-Attachments`의 움직임·착지 캡처에서 최대 개수의 화면 여유와 최종 눈금 일치를 확인했다. 정적 캡처는 움직임 체감을 보증하지 않으며 실제 기기 검수를 유지한다.
+
 ## 남은 실기기 검수
 
 - 실제 iPhone에서 주사위 선택·활성·대기일 때만 흔들기로 한 회차를 시작하는지 확인한다. 브리지 단위 테스트는 하드웨어 전달·first responder 통합의 실기기 증거를 대체하지 않는다.
