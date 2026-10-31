@@ -1,0 +1,14 @@
+{
+  "iteration": 5,
+  "verdict": "pass-with-device-validation-pending",
+  "evidence": ["dice-1.png", "dice-10.png", "dice-10-selected.png", "dice-10-motion.png"],
+  "checks": [
+    "1 and 10 dice fully framed",
+    "ten top faces match the displayed result in row order",
+    "roll button has readable light text on dark background",
+    "selected count immediately changes scene while previous numeric result is preserved",
+    "ten moving dice show independent orientations and bounce phases with separation and camera margin",
+    "no unexpected software keyboard"
+  ],
+  "remaining": ["physical iPhone shake and readability validation"]
+}
