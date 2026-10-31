@@ -28,6 +28,7 @@ final class BoardMateSession {
         // Refresh before activating: expiry during inactivity is reflected without late feedback.
         refreshTime()
         isActive = active
+        if !active, let id = dice.rollID { dice.completeRoll(id: id) }
     }
 
     func setDiceCount(_ text: String) throws {
@@ -41,7 +42,7 @@ final class BoardMateSession {
         guard dice.phase == .idle else { throw InputValidation.Failure.unavailable }
         let values = (0..<dice.count).map { _ in effects.nextDie() }
         let id = UUID()
-        try dice.beginRoll(values: values, id: id)
+        try dice.beginRoll(values: values, id: id, at: clock.now())
         return id
     }
 
@@ -66,6 +67,10 @@ final class BoardMateSession {
     }
 
     func refreshTime() {
+        // Avoid publishing an unchanged DiceState on every timer tick.
+        if let deadline = dice.deadline, clock.now() >= deadline {
+            dice.refresh(at: clock.now())
+        }
         let wasRunning = hourglass.phase == .running
         hourglass.refresh(at: clock.now())
         guard wasRunning, hourglass.phase == .finished,

@@ -7,12 +7,14 @@
 
 import RealityKit
 import UIKit
+import simd
 
 @MainActor
 final class TabletopScene {
     let root = Entity()
     let camera = PerspectiveCamera()
     private var cameraAnimation: AnimationPlaybackController?
+    private let diceRoot = Entity()
 
     init() {
         root.name = "tabletop"
@@ -33,7 +35,8 @@ final class TabletopScene {
             grain.position = [0, 0.0001, Float(index) * 0.045 - 0.61]
             root.addChild(grain)
         }
-        addTool(DiceEntityFactory.make(), tool: .dice, position: [-0.34, 0, 0.08], size: [0.24, 0.18, 0.24])
+        DiceEntityFactory.arrange([1, 1], on: diceRoot)
+        addTool(diceRoot, tool: .dice, position: [-0.34, 0, 0.08], size: [0.42, 0.22, 0.30])
         let hourglass = HourglassEntityFactory.make()
         #if DEBUG
             if let index = ProcessInfo.processInfo.arguments.firstIndex(of: "--hourglass-progress"),
@@ -71,13 +74,40 @@ final class TabletopScene {
         }
     }
 
+    func showDice(_ state: DiceState, animated: Bool) async {
+        let values = state.displayedValues
+        guard animated, state.phase == .rolling else {
+            DiceEntityFactory.arrange(values, on: diceRoot, rollID: state.rollID)
+            return
+        }
+        if diceRoot.children.count != values.count {
+            DiceEntityFactory.arrange(Array(repeating: 1, count: values.count), on: diceRoot)
+        }
+        let dice = Array(diceRoot.children)
+        let motions = dice.enumerated().map { index, die in
+            DiceEntityFactory.RollMotion(start: die.transform, finalRotation:
+                DiceEntityFactory.restingOrientation(showing: values[index], index: index, rollID: state.rollID))
+        }
+        let clock = ContinuousClock()
+        let started = clock.now
+        while !Task.isCancelled {
+            let elapsed = started.duration(to: clock.now).components
+            let seconds = Float(elapsed.seconds) + Float(elapsed.attoseconds) / 1e18
+            for (die, motion) in zip(dice, motions) {
+                die.transform = motion.transform(at: seconds)
+            }
+            if seconds >= Float(DiceState.rollDuration) { return }
+            do { try await Task.sleep(for: .milliseconds(16)) } catch { return }
+        }
+    }
+
     private func cameraTransform(for tool: ToolSelection?) -> Transform {
         let target: SIMD3<Float>
         let offset: SIMD3<Float>
         switch tool {
         case .dice:
             target = [-0.34, 0.06, 0.08]
-            offset = [0.16, 0.27, 0.37]
+            offset = [0.20, 0.35, 0.48]
         case .hourglass:
             target = [0, 0.15, -0.15]
             offset = [0.14, 0.15, 0.55]
