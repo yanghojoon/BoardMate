@@ -15,7 +15,6 @@ final class BoardMateSession {
     private(set) var hourglass = HourglassState()
     private(set) var tokens = TokenState()
     private(set) var isActive = false
-    private var deliveredTimerID: UUID?
     private let clock: SessionClock
     private let effects: SessionEffects
 
@@ -26,8 +25,10 @@ final class BoardMateSession {
 
     func setActive(_ active: Bool) {
         // Refresh before activating: expiry during inactivity is reflected without late feedback.
+        if !active { isActive = false }
         refreshTime()
         isActive = active
+        if !active, let id = dice.rollID { dice.completeRoll(id: id) }
     }
 
     func setDiceCount(_ text: String) throws {
@@ -41,7 +42,7 @@ final class BoardMateSession {
         guard dice.phase == .idle else { throw InputValidation.Failure.unavailable }
         let values = (0..<dice.count).map { _ in effects.nextDie() }
         let id = UUID()
-        try dice.beginRoll(values: values, id: id)
+        try dice.beginRoll(values: values, id: id, at: clock.now())
         return id
     }
 
@@ -51,7 +52,7 @@ final class BoardMateSession {
 
     func configureTimer(seconds text: String) throws {
         try requireTool(.hourglass)
-        try hourglass.configure(duration: TimeInterval(InputValidation.integer(text, in: 1...Int.max)))
+        try hourglass.configure(duration: TimeInterval(InputValidation.integer(text, in: 1...3599)))
     }
 
     func startTimer() throws {
@@ -62,15 +63,15 @@ final class BoardMateSession {
     func resetTimer() throws {
         try requireTool(.hourglass)
         hourglass.reset()
-        deliveredTimerID = nil
     }
 
     func refreshTime() {
-        let wasRunning = hourglass.phase == .running
+        // Avoid publishing an unchanged DiceState on every timer tick.
+        if let deadline = dice.deadline, clock.now() >= deadline {
+            dice.refresh(at: clock.now())
+        }
         hourglass.refresh(at: clock.now())
-        guard wasRunning, hourglass.phase == .finished,
-              let id = hourglass.runID, deliveredTimerID != id else { return }
-        deliveredTimerID = id
+        guard hourglass.consumeCompletion() else { return }
         if isActive { effects.timerFinished() }
     }
 

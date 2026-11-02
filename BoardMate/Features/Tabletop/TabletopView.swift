@@ -12,6 +12,14 @@ struct TabletopView: View {
     let session: BoardMateSession
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var scene = TabletopScene()
+    @State private var diceController: DiceController
+    @State private var hourglassController: HourglassController
+
+    init(session: BoardMateSession) {
+        self.session = session
+        _diceController = State(initialValue: DiceController(session: session))
+        _hourglassController = State(initialValue: HourglassController(session: session))
+    }
 
     private var coordinator: CameraCoordinator { session.navigation }
 
@@ -57,6 +65,22 @@ struct TabletopView: View {
         }
         .foregroundStyle(BoardMateStyle.ink)
         .background(BoardMateStyle.paper)
+        .background {
+            ShakeInputBridge(enabled: diceController.canRoll, onShake: diceController.roll)
+                .allowsHitTesting(false)
+        }
+        .task(id: session.dice) {
+            await scene.showDice(session.dice, animated: !usesReducedMotion)
+        }
+        .onChange(of: session.hourglass, initial: true) { _, state in
+            scene.showHourglass(state, isActive: session.isActive, reduceMotion: usesReducedMotion)
+        }
+        .onChange(of: session.isActive) { _, active in
+            scene.showHourglass(session.hourglass, isActive: active, reduceMotion: usesReducedMotion)
+        }
+        .onChange(of: usesReducedMotion) { _, reduced in
+            scene.showHourglass(session.hourglass, isActive: session.isActive, reduceMotion: reduced)
+        }
         .task(id: coordinator.requestID) {
             let request = coordinator.requestID
             scene.moveCamera(to: coordinator.selectedTool, immediately: coordinator.reducesMotion)
@@ -125,8 +149,8 @@ struct TabletopView: View {
             }
             Group {
                 switch coordinator.selectedTool {
-                case .dice: Text("아이보리 D6 · 여섯 면의 눈금")
-                case .hourglass: Text("황동 모래시계 · 3분 대기")
+                case .dice: DiceControlsView(controller: diceController)
+                case .hourglass: HourglassControlsView(controller: hourglassController)
                 case .tokens: Text("보유 토큰 0개 · 동전은 단위 확인용 표본입니다")
                 case nil: Text("주사위 · 모래시계 · 토큰")
                 }

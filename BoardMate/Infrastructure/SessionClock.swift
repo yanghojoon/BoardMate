@@ -14,7 +14,6 @@ struct SessionClock {
 
 @MainActor
 struct SessionEffects {
-    var nextDie: () -> Int = { Int.random(in: 1...6) }
-    // Step 05 supplies the device feedback implementation.
-    var timerFinished: () -> Void = {}
+    var nextDie: () -> Int = { RandomSource.nextDie() }
+    var timerFinished: () -> Void = { HapticClient.timerFinished() }
 }
