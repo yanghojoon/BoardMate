@@ -6,60 +6,61 @@
 	objectVersion = 56;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		C00000000000000000000137 = {isa = PBXContainerItemProxy; containerPortal = B00000000000000000000050; proxyType = 1; remoteGlobalIDString = B00000000000000000000040; remoteInfo = BoardMate; };
-		C0000000000000000000019B = {isa = PBXContainerItemProxy; containerPortal = B00000000000000000000050; proxyType = 1; remoteGlobalIDString = B00000000000000000000040; remoteInfo = BoardMate; };
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXTargetDependency section */
-		C00000000000000000000136 = {isa = PBXTargetDependency; target = B00000000000000000000040; targetProxy = C00000000000000000000137; };
-		C0000000000000000000019A = {isa = PBXTargetDependency; target = B00000000000000000000040; targetProxy = C0000000000000000000019B; };
-/* End PBXTargetDependency section */
-
 /* Begin PBXBuildFile section */
-		E00000000000000000000001 = {isa = PBXBuildFile; fileRef = E00000000000000000000011; };
-		E00000000000000000000002 = {isa = PBXBuildFile; fileRef = E00000000000000000000012; };
-		E00000000000000000000003 = {isa = PBXBuildFile; fileRef = E00000000000000000000013; };
-		E00000000000000000000004 = {isa = PBXBuildFile; fileRef = E00000000000000000000014; };
-		E00000000000000000000005 = {isa = PBXBuildFile; fileRef = E00000000000000000000015; };
-		E00000000000000000000006 = {isa = PBXBuildFile; fileRef = E00000000000000000000016; };
 		B00000000000000000000001 /* BoardMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000011 /* BoardMateApp.swift */; };
 		B00000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000012 /* ContentView.swift */; };
 		B00000000000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000013 /* Assets.xcassets */; };
-		C000000000000000000000C8 = {isa = PBXBuildFile; fileRef = C00000000000000000000064; };
-		C000000000000000000000C9 = {isa = PBXBuildFile; fileRef = C00000000000000000000065; };
-		C000000000000000000000CA = {isa = PBXBuildFile; fileRef = C00000000000000000000066; };
-		C000000000000000000000CB = {isa = PBXBuildFile; fileRef = C00000000000000000000067; };
-		C000000000000000000000CC = {isa = PBXBuildFile; fileRef = C00000000000000000000068; };
-		C000000000000000000000CD = {isa = PBXBuildFile; fileRef = C00000000000000000000069; };
-		C000000000000000000000CE = {isa = PBXBuildFile; fileRef = C0000000000000000000006A; };
-		C000000000000000000000CF = {isa = PBXBuildFile; fileRef = C0000000000000000000006B; };
-		C000000000000000000000D0 = {isa = PBXBuildFile; fileRef = C0000000000000000000006C; };
-		C0000000000000000000012F = {isa = PBXBuildFile; fileRef = C0000000000000000000012E; };
-		C00000000000000000000193 = {isa = PBXBuildFile; fileRef = C00000000000000000000192; };
-		C000000000000000000001F5 = {isa = PBXBuildFile; fileRef = C000000000000000000001F4; };
-		D000000000000000000000C9 = {isa = PBXBuildFile; fileRef = D00000000000000000000065; };
-		D000000000000000000000CA = {isa = PBXBuildFile; fileRef = D00000000000000000000066; };
-		D000000000000000000000CB = {isa = PBXBuildFile; fileRef = D00000000000000000000067; };
-		D000000000000000000000CC = {isa = PBXBuildFile; fileRef = D00000000000000000000068; };
-		D000000000000000000000CD = {isa = PBXBuildFile; fileRef = D00000000000000000000069; };
-		D000000000000000000000CE = {isa = PBXBuildFile; fileRef = D0000000000000000000006A; };
-		D000000000000000000000CF = {isa = PBXBuildFile; fileRef = D0000000000000000000006B; };
-		D000000000000000000000D0 = {isa = PBXBuildFile; fileRef = D0000000000000000000006C; };
-		F00000000000000000000001 = {isa = PBXBuildFile; fileRef = F00000000000000000000011; };
-		F00000000000000000000002 = {isa = PBXBuildFile; fileRef = F00000000000000000000012; };
-		F00000000000000000000003 = {isa = PBXBuildFile; fileRef = F00000000000000000000013; };
-		F00000000000000000000004 = {isa = PBXBuildFile; fileRef = F00000000000000000000014; };
-		F00000000000000000000005 = {isa = PBXBuildFile; fileRef = F00000000000000000000015; };
+		C000000000000000000000C8 /* ToolSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000064 /* ToolSelection.swift */; };
+		C000000000000000000000C9 /* CameraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000065 /* CameraCoordinator.swift */; };
+		C000000000000000000000CA /* TabletopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000066 /* TabletopScene.swift */; };
+		C000000000000000000000CB /* TabletopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000067 /* TabletopView.swift */; };
+		C000000000000000000000CC /* BoardMateStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000068 /* BoardMateStyle.swift */; };
+		C000000000000000000000CD /* DiceEntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000069 /* DiceEntityFactory.swift */; };
+		C000000000000000000000CE /* HourglassEntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000006A /* HourglassEntityFactory.swift */; };
+		C000000000000000000000CF /* TokenEntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000006B /* TokenEntityFactory.swift */; };
+		C000000000000000000000D0 /* EntityMaterials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000006C /* EntityMaterials.swift */; };
+		C0000000000000000000012F /* CameraCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000012E /* CameraCoordinatorTests.swift */; };
+		C00000000000000000000193 /* TabletopNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000192 /* TabletopNavigationTests.swift */; };
+		C000000000000000000001F5 /* ToolEntityFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C000000000000000000001F4 /* ToolEntityFactoryTests.swift */; };
+		D000000000000000000000C9 /* BoardMateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000000000000000000065 /* BoardMateSession.swift */; };
+		D000000000000000000000CA /* InputValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000000000000000000066 /* InputValidation.swift */; };
+		D000000000000000000000CB /* DiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000000000000000000067 /* DiceState.swift */; };
+		D000000000000000000000CC /* HourglassState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000000000000000000068 /* HourglassState.swift */; };
+		D000000000000000000000CD /* TokenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000000000000000000069 /* TokenState.swift */; };
+		D000000000000000000000CE /* SessionClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0000000000000000000006A /* SessionClock.swift */; };
+		D000000000000000000000CF /* SessionStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0000000000000000000006B /* SessionStateTests.swift */; };
+		D000000000000000000000D0 /* InputValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0000000000000000000006C /* InputValidationTests.swift */; };
+		E00000000000000000000001 /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000000000000000000011 /* DiceController.swift */; };
+		E00000000000000000000002 /* DiceControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000000000000000000012 /* DiceControlsView.swift */; };
+		E00000000000000000000003 /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000000000000000000013 /* RandomSource.swift */; };
+		E00000000000000000000004 /* ShakeInputBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000000000000000000014 /* ShakeInputBridge.swift */; };
+		E00000000000000000000005 /* DiceControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000000000000000000015 /* DiceControllerTests.swift */; };
+		E00000000000000000000006 /* DiceFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000000000000000000016 /* DiceFlowTests.swift */; };
+		F00000000000000000000001 /* HourglassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000011 /* HourglassController.swift */; };
+		F00000000000000000000002 /* HourglassControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000012 /* HourglassControlsView.swift */; };
+		F00000000000000000000003 /* HapticClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000013 /* HapticClient.swift */; };
+		F00000000000000000000004 /* HourglassControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000014 /* HourglassControllerTests.swift */; };
+		F00000000000000000000005 /* HourglassFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000015 /* HourglassFlowTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C00000000000000000000137 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B00000000000000000000050 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B00000000000000000000040;
+			remoteInfo = BoardMate;
+		};
+		C0000000000000000000019B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B00000000000000000000050 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B00000000000000000000040;
+			remoteInfo = BoardMate;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		E00000000000000000000011 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
-		E00000000000000000000012 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceControlsView.swift; sourceTree = "<group>"; };
-		E00000000000000000000013 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSource.swift; sourceTree = "<group>"; };
-		E00000000000000000000014 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeInputBridge.swift; sourceTree = "<group>"; };
-		E00000000000000000000015 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceControllerTests.swift; sourceTree = "<group>"; };
-		E00000000000000000000016 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceFlowTests.swift; sourceTree = "<group>"; };
 		B00000000000000000000010 /* BoardMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00000000000000000000011 /* BoardMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateApp.swift; sourceTree = "<group>"; };
 		B00000000000000000000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,35 +69,41 @@
 		B00000000000000000000015 /* boardgame-tools-prd.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "boardgame-tools-prd.html"; sourceTree = "<group>"; };
 		B00000000000000000000016 /* 2026-10-27-001-feat-boardmate-mvp-plan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "2026-10-27-001-feat-boardmate-mvp-plan.md"; sourceTree = "<group>"; };
 		B00000000000000000000017 /* Steps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Steps; sourceTree = "<group>"; };
-		B00000000000000000000018 /* Scene README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B00000000000000000000018 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B00000000000000000000019 /* Step-01-Verification.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Step-01-Verification.md"; sourceTree = "<group>"; };
-		C00000000000000000000064 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolSelection.swift; sourceTree = "<group>"; };
-		C00000000000000000000065 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
-		C00000000000000000000066 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopScene.swift; sourceTree = "<group>"; };
-		C00000000000000000000067 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopView.swift; sourceTree = "<group>"; };
-		C00000000000000000000068 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateStyle.swift; sourceTree = "<group>"; };
-		C00000000000000000000069 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEntityFactory.swift; sourceTree = "<group>"; };
-		C0000000000000000000006A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassEntityFactory.swift; sourceTree = "<group>"; };
-		C0000000000000000000006B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntityFactory.swift; sourceTree = "<group>"; };
-		C0000000000000000000006C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMaterials.swift; sourceTree = "<group>"; };
-		C0000000000000000000012D = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0000000000000000000012E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinatorTests.swift; sourceTree = "<group>"; };
-		C00000000000000000000191 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C00000000000000000000192 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopNavigationTests.swift; sourceTree = "<group>"; };
-		C000000000000000000001F4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolEntityFactoryTests.swift; sourceTree = "<group>"; };
-		D00000000000000000000065 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateSession.swift; sourceTree = "<group>"; };
-		D00000000000000000000066 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidation.swift; sourceTree = "<group>"; };
-		D00000000000000000000067 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceState.swift; sourceTree = "<group>"; };
-		D00000000000000000000068 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassState.swift; sourceTree = "<group>"; };
-		D00000000000000000000069 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenState.swift; sourceTree = "<group>"; };
-		D0000000000000000000006A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionClock.swift; sourceTree = "<group>"; };
-		D0000000000000000000006B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStateTests.swift; sourceTree = "<group>"; };
-		D0000000000000000000006C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationTests.swift; sourceTree = "<group>"; };
-		F00000000000000000000011 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassController.swift; sourceTree = "<group>"; };
-		F00000000000000000000012 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassControlsView.swift; sourceTree = "<group>"; };
-		F00000000000000000000013 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticClient.swift; sourceTree = "<group>"; };
-		F00000000000000000000014 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassControllerTests.swift; sourceTree = "<group>"; };
-		F00000000000000000000015 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassFlowTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000064 /* ToolSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolSelection.swift; sourceTree = "<group>"; };
+		C00000000000000000000065 /* CameraCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
+		C00000000000000000000066 /* TabletopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopScene.swift; sourceTree = "<group>"; };
+		C00000000000000000000067 /* TabletopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopView.swift; sourceTree = "<group>"; };
+		C00000000000000000000068 /* BoardMateStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateStyle.swift; sourceTree = "<group>"; };
+		C00000000000000000000069 /* DiceEntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceEntityFactory.swift; sourceTree = "<group>"; };
+		C0000000000000000000006A /* HourglassEntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassEntityFactory.swift; sourceTree = "<group>"; };
+		C0000000000000000000006B /* TokenEntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntityFactory.swift; sourceTree = "<group>"; };
+		C0000000000000000000006C /* EntityMaterials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMaterials.swift; sourceTree = "<group>"; };
+		C0000000000000000000012D /* BoardMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0000000000000000000012E /* CameraCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinatorTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000191 /* BoardMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00000000000000000000192 /* TabletopNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabletopNavigationTests.swift; sourceTree = "<group>"; };
+		C000000000000000000001F4 /* ToolEntityFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolEntityFactoryTests.swift; sourceTree = "<group>"; };
+		D00000000000000000000065 /* BoardMateSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMateSession.swift; sourceTree = "<group>"; };
+		D00000000000000000000066 /* InputValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidation.swift; sourceTree = "<group>"; };
+		D00000000000000000000067 /* DiceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceState.swift; sourceTree = "<group>"; };
+		D00000000000000000000068 /* HourglassState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassState.swift; sourceTree = "<group>"; };
+		D00000000000000000000069 /* TokenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenState.swift; sourceTree = "<group>"; };
+		D0000000000000000000006A /* SessionClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionClock.swift; sourceTree = "<group>"; };
+		D0000000000000000000006B /* SessionStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStateTests.swift; sourceTree = "<group>"; };
+		D0000000000000000000006C /* InputValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationTests.swift; sourceTree = "<group>"; };
+		E00000000000000000000011 /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
+		E00000000000000000000012 /* DiceControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceControlsView.swift; sourceTree = "<group>"; };
+		E00000000000000000000013 /* RandomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSource.swift; sourceTree = "<group>"; };
+		E00000000000000000000014 /* ShakeInputBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeInputBridge.swift; sourceTree = "<group>"; };
+		E00000000000000000000015 /* DiceControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceControllerTests.swift; sourceTree = "<group>"; };
+		E00000000000000000000016 /* DiceFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceFlowTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000011 /* HourglassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassController.swift; sourceTree = "<group>"; };
+		F00000000000000000000012 /* HourglassControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassControlsView.swift; sourceTree = "<group>"; };
+		F00000000000000000000013 /* HapticClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticClient.swift; sourceTree = "<group>"; };
+		F00000000000000000000014 /* HourglassControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassControllerTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000015 /* HourglassFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourglassFlowTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +114,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C00000000000000000000131 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
-		C00000000000000000000195 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000131 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C00000000000000000000195 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -151,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				B00000000000000000000010 /* BoardMate.app */,
-				C00000000000000000000191,
-				C0000000000000000000012D,
+				C00000000000000000000191 /* BoardMateUITests.xctest */,
+				C0000000000000000000012D /* BoardMateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,7 +213,7 @@
 		B00000000000000000000037 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				B00000000000000000000018 /* Scene README.md */,
+				B00000000000000000000018 /* README.md */,
 				C0000000000000000000006C /* EntityMaterials.swift */,
 			);
 			path = Scene;
@@ -254,11 +273,17 @@
 			path = BoardMateUITests;
 			sourceTree = "<group>";
 		};
-		D00000000000000000000001 = {isa = PBXGroup; children = (
+		D00000000000000000000001 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
 				E00000000000000000000013 /* RandomSource.swift */,
 				E00000000000000000000014 /* ShakeInputBridge.swift */,
 				F00000000000000000000013 /* HapticClient.swift */,
-				D0000000000000000000006A /* SessionClock.swift */,); path = Infrastructure; sourceTree = "<group>"; };
+				D0000000000000000000006A /* SessionClock.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,8 +304,42 @@
 			productReference = B00000000000000000000010 /* BoardMate.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C0000000000000000000012C = {isa = PBXNativeTarget; buildConfigurationList = C00000000000000000000133; buildPhases = (C00000000000000000000130,C00000000000000000000131,C00000000000000000000132,); buildRules = (); dependencies = (C00000000000000000000136,); name = BoardMateTests; productName = BoardMateTests; productReference = C0000000000000000000012D; productType = "com.apple.product-type.bundle.unit-test"; };
-		C00000000000000000000190 = {isa = PBXNativeTarget; buildConfigurationList = C00000000000000000000197; buildPhases = (C00000000000000000000194,C00000000000000000000195,C00000000000000000000196,); buildRules = (); dependencies = (C0000000000000000000019A,); name = BoardMateUITests; productName = BoardMateUITests; productReference = C00000000000000000000191; productType = "com.apple.product-type.bundle.ui-testing"; };
+		C0000000000000000000012C /* BoardMateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C00000000000000000000133 /* Build configuration list for PBXNativeTarget "BoardMateTests" */;
+			buildPhases = (
+				C00000000000000000000130 /* Sources */,
+				C00000000000000000000131 /* Frameworks */,
+				C00000000000000000000132 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C00000000000000000000136 /* PBXTargetDependency */,
+			);
+			name = BoardMateTests;
+			productName = BoardMateTests;
+			productReference = C0000000000000000000012D /* BoardMateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C00000000000000000000190 /* BoardMateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C00000000000000000000197 /* Build configuration list for PBXNativeTarget "BoardMateUITests" */;
+			buildPhases = (
+				C00000000000000000000194 /* Sources */,
+				C00000000000000000000195 /* Frameworks */,
+				C00000000000000000000196 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0000000000000000000019A /* PBXTargetDependency */,
+			);
+			name = BoardMateUITests;
+			productName = BoardMateUITests;
+			productReference = C00000000000000000000191 /* BoardMateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -309,8 +368,8 @@
 			projectRoot = "";
 			targets = (
 				B00000000000000000000040 /* BoardMate */,
-				C00000000000000000000190,
-				C0000000000000000000012C,
+				C00000000000000000000190 /* BoardMateUITests */,
+				C0000000000000000000012C /* BoardMateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -324,36 +383,91 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C00000000000000000000132 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
-		C00000000000000000000196 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C00000000000000000000196 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B00000000000000000000021 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (F00000000000000000000001,F00000000000000000000003,F00000000000000000000002,D000000000000000000000CE,D000000000000000000000CD,D000000000000000000000CC,D000000000000000000000CB,D000000000000000000000CA,D000000000000000000000C9,
+			files = (
+				F00000000000000000000001 /* HourglassController.swift in Sources */,
+				F00000000000000000000003 /* HapticClient.swift in Sources */,
+				F00000000000000000000002 /* HourglassControlsView.swift in Sources */,
+				D000000000000000000000CE /* SessionClock.swift in Sources */,
+				D000000000000000000000CD /* TokenState.swift in Sources */,
+				D000000000000000000000CC /* HourglassState.swift in Sources */,
+				D000000000000000000000CB /* DiceState.swift in Sources */,
+				D000000000000000000000CA /* InputValidation.swift in Sources */,
+				D000000000000000000000C9 /* BoardMateSession.swift in Sources */,
 				B00000000000000000000001 /* BoardMateApp.swift in Sources */,
 				B00000000000000000000002 /* ContentView.swift in Sources */,
-				E00000000000000000000001,
-				E00000000000000000000002,
-				E00000000000000000000003,
-				E00000000000000000000004,
-				C000000000000000000000D0,
-				C000000000000000000000CF,
-				C000000000000000000000CE,
-				C000000000000000000000CD,
-				C000000000000000000000CC,
-				C000000000000000000000CB,
-				C000000000000000000000CA,
-				C000000000000000000000C9,
-				C000000000000000000000C8,
+				E00000000000000000000001 /* DiceController.swift in Sources */,
+				E00000000000000000000002 /* DiceControlsView.swift in Sources */,
+				E00000000000000000000003 /* RandomSource.swift in Sources */,
+				E00000000000000000000004 /* ShakeInputBridge.swift in Sources */,
+				C000000000000000000000D0 /* EntityMaterials.swift in Sources */,
+				C000000000000000000000CF /* TokenEntityFactory.swift in Sources */,
+				C000000000000000000000CE /* HourglassEntityFactory.swift in Sources */,
+				C000000000000000000000CD /* DiceEntityFactory.swift in Sources */,
+				C000000000000000000000CC /* BoardMateStyle.swift in Sources */,
+				C000000000000000000000CB /* TabletopView.swift in Sources */,
+				C000000000000000000000CA /* TabletopScene.swift in Sources */,
+				C000000000000000000000C9 /* CameraCoordinator.swift in Sources */,
+				C000000000000000000000C8 /* ToolSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C00000000000000000000130 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (F00000000000000000000004,E00000000000000000000005,D000000000000000000000D0,D000000000000000000000CF,C0000000000000000000012F,C000000000000000000001F5,); runOnlyForDeploymentPostprocessing = 0; };
-		C00000000000000000000194 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (F00000000000000000000005,E00000000000000000000006,C00000000000000000000193,); runOnlyForDeploymentPostprocessing = 0; };
+		C00000000000000000000130 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00000000000000000000004 /* HourglassControllerTests.swift in Sources */,
+				E00000000000000000000005 /* DiceControllerTests.swift in Sources */,
+				D000000000000000000000D0 /* InputValidationTests.swift in Sources */,
+				D000000000000000000000CF /* SessionStateTests.swift in Sources */,
+				C0000000000000000000012F /* CameraCoordinatorTests.swift in Sources */,
+				C000000000000000000001F5 /* ToolEntityFactoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C00000000000000000000194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00000000000000000000005 /* HourglassFlowTests.swift in Sources */,
+				E00000000000000000000006 /* DiceFlowTests.swift in Sources */,
+				C00000000000000000000193 /* TabletopNavigationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C00000000000000000000136 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B00000000000000000000040 /* BoardMate */;
+			targetProxy = C00000000000000000000137 /* PBXContainerItemProxy */;
+		};
+		C0000000000000000000019A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B00000000000000000000040 /* BoardMate */;
+			targetProxy = C0000000000000000000019B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B00000000000000000000070 /* Debug */ = {
@@ -394,7 +508,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FA464JRW3F;
+				DEVELOPMENT_TEAM = GLHK3966V7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BoardMate;
@@ -424,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FA464JRW3F;
+				DEVELOPMENT_TEAM = GLHK3966V7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BoardMate;
@@ -451,17 +565,21 @@
 		C00000000000000000000134 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FA464JRW3F;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoardMate";
 			};
 			name = Debug;
@@ -469,17 +587,21 @@
 		C00000000000000000000135 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FA464JRW3F;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardMate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoardMate";
 			};
 			name = Release;
@@ -490,13 +612,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FA464JRW3F;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
 				TEST_TARGET_NAME = BoardMate;
 			};
 			name = Debug;
@@ -507,13 +633,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FA464JRW3F;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanghojoon.BoardMateUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
 				TEST_TARGET_NAME = BoardMate;
 			};
 			name = Release;
@@ -539,8 +669,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C00000000000000000000133 = {isa = XCConfigurationList; buildConfigurations = (C00000000000000000000134,C00000000000000000000135,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
-		C00000000000000000000197 = {isa = XCConfigurationList; buildConfigurations = (C00000000000000000000198,C00000000000000000000199,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		C00000000000000000000133 /* Build configuration list for PBXNativeTarget "BoardMateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C00000000000000000000134 /* Debug */,
+				C00000000000000000000135 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C00000000000000000000197 /* Build configuration list for PBXNativeTarget "BoardMateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C00000000000000000000198 /* Debug */,
+				C00000000000000000000199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 	};
 	rootObject = B00000000000000000000050 /* Project object */;
