@@ -4,13 +4,14 @@
 
 ## 구현 기준
 
-P-04·P-05의 계획용 제안을 이번 구현 기준으로 채택했다. 별도 사용자 정책 확정으로 기록하지 않는다. 분·초 각각 0~59, 합계 1~3599초를 허용하며 기본값은 3분·대기다. 설정 적용과 시작은 별도 동작이고 실행·종료 후에는 리셋해야 시간을 변경할 수 있다. 일시정지는 제공하지 않는다.
+P-04·P-05의 계획용 제안을 이번 구현 기준으로 채택했다. 별도 사용자 정책 확정으로 기록하지 않는다. 분·초 각각 0~59, 합계 1~3599초를 허용하며 기본값은 3분·대기다. 2026-11-02 사용자 요청으로 유효한 시간 입력은 즉시 적용하고 별도 설정 적용 버튼을 제거했다. 카운트다운은 시작 버튼으로 실행하며 실행·종료 후에는 리셋해야 시간을 변경할 수 있다. 일시정지는 제공하지 않는다.
 
 비활성·잠금 중 만료는 종료 상태로만 반영하고 복귀 진동을 생략한다. 백그라운드 진동 전달은 보장하지 않는다. 활성 중 다른 도구를 사용하다 만료되어도 실제 UIKit 완료 진동을 회차당 한 번 요청한다. 시스템 설정과 하드웨어에서의 실제 진동 전달은 실기기 검수 항목이다.
 
 ## 구현과 경계
 
 - `HourglassController`는 입력 검증과 시작·리셋의 UI 진입점이다. 세션 활성·도구 선택·카메라 안정 조건과 도메인의 상태 조건을 함께 적용한다.
+- 입력 중 빈 값·0초·범위 초과 값은 직전 유효 시간을 유지하고 시작을 차단한다. 도구 재진입·리셋 시 적용된 시간으로 입력을 복원하면서 오류도 함께 초기화한다.
 - 종료 기준 시각과 주입된 현재 시각의 차이로 남은 시간을 계산한다. 루트 앱의 기존 250ms 갱신을 재사용하며 도구 패널이나 연출은 시간을 소유하지 않는다. 시각이 역행해도 설정 시간을 초과하거나 모래 진행률이 음수가 되지 않는다.
 - `HourglassState.consumedCompletionID`는 완료를 처리한 회차를 기록한다. 비활성 만료도 처리된 회차로 남겨 활성 복귀·중복 갱신에서 진동을 다시 요청하지 않는다. 비활성 전환에서는 먼저 활성 플래그를 내려 전환 경계에서의 늦은 진동을 차단한다.
 - 리셋은 종료 시각·회차·완료 처리 기록을 제거하고 설정 시간·대기·초기 모래 양을 복원한다. 지연된 틱은 저장된 과거 회차가 아닌 현재 상태를 읽으므로 새 회차를 과거 종료 시각으로 완료하지 않는다.
@@ -28,6 +29,15 @@ P-04·P-05의 계획용 제안을 이번 구현 기준으로 채택했다. 별�
 - [대기 00:30](Step-05/hourglass-idle.png), [종료 00:00](Step-05/hourglass-finished.png), [홈 복귀 실행 00:22](Step-05/hourglass-resumed.png)에서 화면 배치와 실제 세션의 남은 시간·모래 양을 확인했다. 0·중간·100%의 부피 비율은 엔티티 테스트로 검증했다. 기존 `--hourglass-progress` 캡처는 모양만 보여주는 DEBUG 표본으로, 시간 일치 증거에 사용하지 않는다.
 - 전용 `visual-verdict` 스킬이 설치되어 있지 않아 직접 캡처를 판독하고 [판정 JSON](Step-05/visual-verdict.json)과 `.omx/state/step05/ralph-progress.json`에 기록했다. 실기기 검수 대기 상태를 유지한다.
 
+## 2026-11-02 입력 개선 검증
+
+- 환경: Xcode 27.1, iPhone 17 Pro / iOS 26.5 시뮬레이터.
+- 전체 단위 테스트 39개 통과: `/tmp/BoardMate-Hourglass-Input-20261102.xcresult`. 이 최초 실행은 신규 UI 입력 테스트의 실패를 포함하므로 전체 성공으로 표시하지 않는다.
+- 모래시계 UI 5개 최종 통과: `/tmp/BoardMate-Hourglass-Input-20261102-Final.xcresult`, 로그 `/tmp/BoardMate-Hourglass-Input-20261102-Final.log`, 종료 코드 0. 키보드를 닫지 않은 즉시 반영, 유효 값 삭제 후 빈 입력에서 직전 유효 시간 유지·시작 차단, 도구 왕복 시 입력·오류 초기화, 기존 리셋·만료·복귀를 확인했다.
+- 입력을 `30 → 3 → 빈 값`으로 지우면 3초까지 즉시 반영한 뒤 유지한다. 초기 테스트의 빈 필드 placeholder 및 삭제 중간값 기대를 수정하고 UI 5개를 재통과했다. 중간 재실행은 실패 후 Xcode 진단 수집이 대기 상태에 머물러 해당 실행만 종료했으며, 최종 실행은 자동 진단 수집을 끄고 완료했다.
+- `git diff --check` 통과. 현재 환경에 SwiftLint가 없어 이번 변경의 lint는 실행하지 않았다.
+- Xcode의 OS build 파싱·디버거 버전 조회 메시지와 `Invalid frame dimension (negative or non-finite)` 런타임 경고가 관찰됐다. 테스트 성공과 별도로 경고 기록을 남긴다.
+
 ## 남은 실기기 검수
 
 - 실제 iPhone에서 모래시계 실행 후 다른 도구를 선택한 상태로 만료되면 진동이 한 번 전달되는지, 복귀에서 반복되지 않는지 확인한다.
@@ -38,9 +48,9 @@ P-04·P-05의 계획용 제안을 이번 구현 기준으로 채택했다. 별�
 ## 재현
 
 ```sh
-export DEVELOPER_DIR=/Users/yanghojoon/Downloads/Xcode.app/Contents/Developer
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 xcodebuild -project BoardMate.xcodeproj -scheme BoardMate -configuration Debug \
-  -destination 'platform=iOS Simulator,id=0C0205D5-80E2-4BF3-A631-D446F245E61C' \
+  -destination 'platform=iOS Simulator,id=D2DD11C7-FB04-4A97-9339-2C983201B23B' \
   -derivedDataPath /tmp/BoardMate-Step05-DerivedData CODE_SIGNING_ALLOWED=NO \
   -parallel-testing-enabled NO test
 xcodebuild -project BoardMate.xcodeproj -scheme BoardMate -configuration Release \
