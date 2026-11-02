@@ -19,7 +19,7 @@ final class HourglassController {
     }
 
     var canConfigure: Bool { canExecute && session.hourglass.phase == .idle }
-    var canStart: Bool { canConfigure }
+    var canStart: Bool { canConfigure && inputError == nil }
     var canReset: Bool { canExecute }
 
     func resetInputError() { inputError = nil }

@@ -12,18 +12,40 @@ final class HourglassFlowTests: XCTestCase {
     func testConfigurationValidationAndReset() {
         let app = launchHourglass()
         XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "180")
+        XCTAssertFalse(app.buttons["hourglass.apply"].exists)
         configure(minutes: "0", seconds: "0", in: app)
         XCTAssertTrue(app.staticTexts["hourglass.hint"].label.contains("1초~59분 59초"))
         XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "180")
+        XCTAssertFalse(app.buttons["hourglass.start"].isEnabled)
         configure(minutes: "0", seconds: "30", in: app)
         XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "30")
         attach("Hourglass idle", in: app)
         app.buttons["hourglass.start"].tap()
         XCTAssertFalse(app.buttons["hourglass.start"].isEnabled)
-        XCTAssertFalse(app.buttons["hourglass.apply"].isEnabled)
+        XCTAssertFalse(app.textFields["hourglass.minutes"].isEnabled)
+        XCTAssertFalse(app.textFields["hourglass.seconds"].isEnabled)
         app.buttons["hourglass.reset"].tap()
         assertPhase("idle", in: app)
         XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "30")
+        XCTAssertTrue(app.buttons["hourglass.start"].isEnabled)
+    }
+
+    func testTimeAppliesWhileEditingWithoutDismissingKeyboard() {
+        let app = launchHourglass()
+        replaceText("0", in: app.textFields["hourglass.minutes"])
+        let seconds = app.textFields["hourglass.seconds"]
+        replaceText("30", in: seconds)
+        XCTAssertTrue(app.keyboards.firstMatch.exists)
+        XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "30")
+        XCTAssertTrue(app.buttons["hourglass.start"].isEnabled)
+
+        seconds.typeText(XCUIKeyboardKey.delete.rawValue)
+        XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "3")
+        seconds.typeText(XCUIKeyboardKey.delete.rawValue)
+        XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "3")
+        XCTAssertFalse(app.buttons["hourglass.start"].isEnabled)
+        seconds.typeText("45")
+        XCTAssertEqual(app.staticTexts["hourglass.remaining"].value as? String, "45")
         XCTAssertTrue(app.buttons["hourglass.start"].isEnabled)
     }
 
@@ -86,15 +108,17 @@ final class HourglassFlowTests: XCTestCase {
 
     private func configure(minutes: String, seconds: String, in app: XCUIApplication) {
         for (identifier, value) in [("hourglass.minutes", minutes), ("hourglass.seconds", seconds)] {
-            let field = app.textFields[identifier]
-            // Tap after the centered digits so deletion starts at the end of the value.
-            field.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
-            let current = field.value as? String ?? ""
-            field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: current.count) + value)
-            XCTAssertEqual(field.value as? String, value)
+            replaceText(value, in: app.textFields[identifier])
         }
         app.buttons["완료"].tap()
-        app.buttons["hourglass.apply"].tap()
+    }
+
+    private func replaceText(_ value: String, in field: XCUIElement) {
+        // Tap after the digits so deletion starts at the end of the value.
+        field.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
+        let current = field.value as? String ?? ""
+        field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: current.count) + value)
+        XCTAssertEqual(field.value as? String, value)
     }
 
     private func assertPhase(_ phase: String, in app: XCUIApplication) {

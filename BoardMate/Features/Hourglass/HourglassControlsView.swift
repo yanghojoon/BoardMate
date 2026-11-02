@@ -62,14 +62,8 @@ struct HourglassControlsView: View {
             HStack {
                 timeField("분", text: $minutes, identifier: "hourglass.minutes")
                 timeField("초", text: $seconds, identifier: "hourglass.seconds")
-                Button("설정 적용") {
-                    editing = nil
-                    controller.configure(minutes: minutes, seconds: seconds)
-                }
-                .disabled(!controller.canConfigure)
-                .accessibilityIdentifier("hourglass.apply")
             }
-            Text(controller.inputError ?? "설정을 적용한 뒤 시작하세요 · 이탈 중에도 시간은 흐릅니다")
+            Text(controller.inputError ?? "시간은 입력 즉시 적용됩니다 · 이탈 중에도 시간은 흐릅니다")
                 .font(.caption)
                 .foregroundStyle(controller.inputError == nil ? BoardMateStyle.ink : .red)
                 .accessibilityIdentifier("hourglass.hint")
@@ -85,7 +79,13 @@ struct HourglassControlsView: View {
 
     private func timeField(_ label: String, text: Binding<String>, identifier: String) -> some View {
         HStack(spacing: 4) {
-            TextField(label, text: text)
+            TextField(label, text: Binding(
+                get: { text.wrappedValue },
+                set: { value in
+                    text.wrappedValue = value
+                    controller.configure(minutes: minutes, seconds: seconds)
+                }
+            ))
                 .keyboardType(.numberPad)
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 52)

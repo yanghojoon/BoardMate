@@ -33,6 +33,26 @@ struct HourglassControllerTests {
         #expect(session.hourglass.duration == 1)
     }
 
+    @Test func invalidEditsPreventStartingThePreviousDuration() {
+        let session = BoardMateSession()
+        let controller = prepare(session)
+        controller.configure(minutes: "0", seconds: "30")
+        for pair in [("", "30"), ("0", "0"), ("0", "60")] {
+            controller.configure(minutes: pair.0, seconds: pair.1)
+            #expect(session.hourglass.duration == 30)
+            #expect(session.hourglass.remaining == 30)
+            #expect(!controller.canStart)
+            controller.start()
+            #expect(session.hourglass.phase == .idle)
+        }
+        controller.configure(minutes: "1", seconds: "15")
+        #expect(session.hourglass.duration == 75)
+        #expect(session.hourglass.remaining == 75)
+        #expect(controller.canStart)
+        controller.start()
+        #expect(session.hourglass.phase == .running)
+    }
+
     @Test func clockAndToolChangesPreserveRunAndResetRestoresConfiguredTime() {
         var now = Date(timeIntervalSince1970: 100)
         let session = BoardMateSession(clock: SessionClock(now: { now }))
