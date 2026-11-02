@@ -80,6 +80,7 @@ struct HourglassControlsView: View {
                 Button("완료") { editing = nil }
             }
         }
+        .onAppear(perform: restoreInputs)
     }
 
     private func timeField(_ label: String, text: Binding<String>, identifier: String) -> some View {
@@ -99,5 +100,6 @@ struct HourglassControlsView: View {
     private func restoreInputs() {
         minutes = String(Int(timer.duration) / 60)
         seconds = String(Int(timer.duration) % 60)
+        controller.resetInputError()
     }
 }

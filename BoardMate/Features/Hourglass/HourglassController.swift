@@ -22,6 +22,8 @@ final class HourglassController {
     var canStart: Bool { canConfigure }
     var canReset: Bool { canExecute }
 
+    func resetInputError() { inputError = nil }
+
     func configure(minutes: String, seconds: String) {
         do {
             let minutes = try InputValidation.integer(minutes, in: 0...59)

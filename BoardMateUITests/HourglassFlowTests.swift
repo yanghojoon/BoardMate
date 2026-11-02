@@ -27,6 +27,18 @@ final class HourglassFlowTests: XCTestCase {
         XCTAssertTrue(app.buttons["hourglass.start"].isEnabled)
     }
 
+    func testReturningToHourglassRestoresInputsAndClearsError() {
+        let app = launchHourglass()
+        configure(minutes: "0", seconds: "0", in: app)
+        XCTAssertTrue(app.staticTexts["hourglass.hint"].label.contains("1초~59분 59초"))
+        app.buttons["select.dice"].tap()
+        app.buttons["select.hourglass"].tap()
+        XCTAssertEqual(app.textFields["hourglass.minutes"].value as? String, "3")
+        XCTAssertEqual(app.textFields["hourglass.seconds"].value as? String, "0")
+        XCTAssertFalse(app.staticTexts["hourglass.hint"].label.contains("1초~59분 59초"))
+        XCTAssertTrue(app.buttons["hourglass.start"].isEnabled)
+    }
+
     func testRunningTimerSurvivesToolRoundTripAndBackground() {
         let app = launchHourglass()
         configure(minutes: "0", seconds: "30", in: app)
